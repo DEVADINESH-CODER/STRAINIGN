@@ -4,76 +4,103 @@
   <meta charset="UTF-8">
   <title>College Login</title>
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
-    .login-container {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
+
+    .login-wrapper {
+      background: white;
       padding: 40px;
-      width: 320px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 400px;
       text-align: center;
     }
+
     .logo {
-      width: 80px;
-      animation: fadeIn 2s ease-in-out;
+      width: 100px;
+      margin-bottom: 20px;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
     }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
     input[type="text"], input[type="password"] {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
+      width: 100%;
+      padding: 12px 40px 12px 12px;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      background: #f0f0f0;
+      font-size: 16px;
     }
+
+    .input-group i {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #888;
+    }
+
     button {
-      width: 95%;
-      padding: 10px;
-      background-color: #007BFF;
+      width: 100%;
+      padding: 12px;
+      background-color: #1e3c72;
       color: white;
       border: none;
       border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
     }
+
     button:hover {
-      background-color: #0056b3;
+      background-color: #16335f;
+    }
+
+    @media screen and (max-width: 500px) {
+      .login-wrapper {
+        padding: 30px 20px;
+      }
     }
   </style>
+  <!-- Font Awesome for lock icons -->
+  <script src="https://kit.fontawesome.com/a076d0539.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <div class="login-container">
+  <div class="login-wrapper">
     <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/40b7d78f-087c-4435-8716-61ab7b5bfef0/Ad_(1)/w=1920,quality=90,fit=scale-down" alt="College Logo" class="logo">
     <h2>Welcome Back</h2>
-    <form onsubmit="return loginUser()">
-      <input type="text" placeholder="Username" required><br>
-      <input type="password" placeholder="Password" required><br>
+    <form>
+      <div class="input-group">
+        <input type="text" placeholder="Username" required>
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Password" required>
+        <i class="fas fa-lock"></i>
+      </div>
       <button type="submit">Login</button>
     </form>
   </div>
-
-  <script>
-    function loginUser() {
-      // Simulate login success
-      alert("Login successful! Redirecting...");
-      setTimeout(() => {
-        window.location.href = "dashboard.html";
-      }, 1500); // 1.5 second delay
-      return false; // Prevent actual form submission
-    }
-  </script>
 
 </body>
 </html>
